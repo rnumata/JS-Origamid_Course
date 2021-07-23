@@ -1,0 +1,12 @@
+label {
+  display: block;
+}
+span {
+  display: block;
+  font-weight: bold;
+  color: red;
+}
+
+.invalido {
+  border-color: red;
+}

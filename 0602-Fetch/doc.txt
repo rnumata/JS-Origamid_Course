@@ -1,0 +1,2 @@
+Parágrafo de teste do fecth
+para interagir com APIs

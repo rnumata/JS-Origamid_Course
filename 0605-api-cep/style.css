@@ -1,0 +1,11 @@
+label,
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+span {
+  display: block;
+  font-weight: bold;
+  color: red;
+}

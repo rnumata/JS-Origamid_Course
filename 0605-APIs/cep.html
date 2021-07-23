@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="checkbox" id="hamburger-toggle" />
+    <label class="hamburger-wrapper" for="hamburger-toggle">
+      <span class="hamburger"></span>
+    </label>
+
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="menu.html">Home</a></li>
+        <li><a href="animais.html">API-Animais</a></li>
+        <li><a href="bitcoin.html">API-bitcoin</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <form name="contato" class="contato">
+        <label for="cep">cep</label>
+        <input type="text" name="cep" id="cep" required />
+        <label for="endereco">Endereco</label>
+        <input type="text" name="endereco" id="endereco" readonly />
+        <label for="bairro">Bairro</label>
+        <input type="text" name="bairro" id="bairro" readonly />
+        <label for="localidade">Cidade</label>
+        <input type="text" name="localidade" id="localidade" readonly />
+        <label for="uf">Estado</label>
+        <input type="text" name="uf" id="uf" readonly />
+      </form>
+    </section>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>

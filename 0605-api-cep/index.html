@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Escopo</title>
+  </head>
+  <body>
+    <form name="cep" id="cep" method="GET" action=".">
+      <label for="cep">CEP</label>
+      <input type="text" name="cep" id="cep" required onblur="pesquisaCep(this.value);"/>
+      <span class="erro"></span>
+      <label for="rua">Rua</label>
+      <input type="text" name="rua" id="rua" maxlength="40" />
+      <label for="bairro">Bairro</label>
+      <input type="text" name="bairro" id="bairro" />
+      <label for="cidade">Cidade</label>
+      <input type="text" name="cidade" id="cidade" />
+      <label for="estado">Estado</label>
+      <input type="text" name="estado" id="estado" />
+      <label for="ibge">IBGE</label>
+      <input type="text" name="ibge" id="ibge" />
+    </form>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
