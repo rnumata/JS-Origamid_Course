@@ -1,9 +1,11 @@
 const frase1 = "regis";
 
 //Transformar 1a letra em maiuscula
-
 const novaFrase = frase1.replace(frase1[0], frase1[0].toUpperCase());
 console.log(novaFrase);
+
+//slice
+const novaFrase1 = frase1.slice(0,2); // retorna : re
 
 /**
  * Exercicios
