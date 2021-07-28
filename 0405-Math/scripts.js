@@ -1,22 +1,45 @@
+//parseFloat e parseInt (converte string em number)
+const valorFloat = '100.10';
+console.log(Number.parseFloat(valorFloat)); //100.1
+console.log(+valorFloat); //100.1
+const valorReais = '100.1 reais';
+console.log(parseFloat(valorReais)); //100.1
+
+const valorInt = '100.1';
+console.log(parseInt(valorInt)); //100
+
+//toFixed (arredonda com base no total de casas decimais do argumento)
+const precoArredondado = 10.66542;
+console.log(+precoArredondado.toFixed(2)); //10.67 tem que converter para float pois retorna uma string
+console.log(+precoArredondado.toFixed()); //11
+
+//toLocaleString(lang,{style: , currency : })
 const preco = 59.49;
 const dolar = preco.toLocaleString("en-US", {
   style: "currency",
   currency: "USD",
-}); // $59.49
+}); 
+console.log(dolar); // $59.49 string
+
 const real = preco.toLocaleString("pt-BR", {
   style: "currency",
   currency: "BRL",
-}); // R$ 59,49
-console.log(dolar, real);
+}); 
+console.log(real); // R$ 59,49 string
 
+
+// OBJETO Math
 //Sorteia numeros randomicos de 0 a 1000
 const valorRandom = Math.random() * 1000;
 console.log(parseInt(valorRandom));
 
+Math.ceil(4.3); // 5
+Math.floor(4.8); // 4
+
 Math.max(5, 3, 10, 42, 2); // 42
 Math.min(5, 3, 10, 42, 2); // 2
 
-Math.random(); // 0.XXX
+Math.random(); // 0.XXX aleatorio de 0 a 1
 Math.floor(Math.random() * 100); // entre 0 e 100
 Math.floor(Math.random() * 500); // entre 0 e 500
 
@@ -24,6 +47,8 @@ Math.floor(Math.random() * 500); // entre 0 e 500
 //Math.floor(Math.random() * (max - min + 1)) + min;
 const maxEntre = Math.floor(Math.random() * (50 - 10 + 1)) + 10;
 console.log(maxEntre);
+
+
 
 /**
  * Exercícios
