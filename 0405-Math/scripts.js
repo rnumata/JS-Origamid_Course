@@ -75,7 +75,6 @@ function limparPrecos(preco) {
   preco = +preco.toFixed(2);
   return preco;
 }
-limparPrecos(listaPrecos[3]);
 
 let soma = 0;
 listaPrecos.forEach((preco) => {

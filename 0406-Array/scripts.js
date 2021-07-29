@@ -1,53 +1,105 @@
-//1-
+/*
+ * Aula 0406 - Array1
+ */
+
+//metodo de array
+const arrayTeste = [];
+console.log(Array.isArray(arrayTeste));// true
+
+//Metodos de Array Modificadores (shift, pop, push, unshift)
 const comidas = ["Pizza", "Frango", "Carne", "Macarrão"];
-// Remova o primeiro valor de comidas e coloque em uma variável
+// shift() - Remova o primeiro valor de comidas e coloque em uma variável
 const primeiroValorRemovido = comidas.shift();
-console.log(primeiroValorRemovido);
-// Remova o último valor de comidas e coloque em uma variável
-const ultimoValorRemovido = comidas.pop();
-console.log(ultimoValorRemovido);
-// Adicione 'Arroz' ao final da array
+console.log(primeiroValorRemovido); //pizza
+// pop() - Remova o último valor de comidas e coloque em uma variável
+const ultimoValorRemovido = comidas.pop(); 
+console.log(ultimoValorRemovido); //Macarrao
+// push() - Adicione 'Arroz' ao final da array
 comidas.push("Arroz");
 console.log(comidas);
-// Adicione 'Peixe' e 'Batata' ao início da array
+// unshift() - Adicione 'Peixe' e 'Batata' ao início da array
 comidas.unshift("Peixe", "Batata");
 console.log(comidas);
 
+//Metodos de Array Modificadores (sort, reverse)
 const estudantes = ["Marcio", "Brenda", "Joana", "Kleber", "Julia"];
 // Arrume os estudantes em ordem alfabética
-estudantes.sort();
-console.log(estudantes);
+console.log(estudantes.sort());
 // Inverta a ordem dos estudantes
-estudantes.reverse();
-console.log(estudantes);
+console.log(estudantes.reverse());
 // Verifique se Joana faz parte dos estudantes
-console.log(estudantes.includes("Joana"));
+console.log(estudantes.includes("Joana")); //true
 // Verifique se Juliana faz parte dos estudantes
-console.log(estudantes.includes("Juliana"));
+console.log(estudantes.includes("Juliana")); //false
 
-//2-
+/*
+ * Aula 0406 - Array2
+ */
+
+//Metodos de Array Modificadores [].splice()
+//[].splice(a partir de qual item, quantos itens quer remover, item1 a add, item2 a add, ...)
+const marcas = ["Ford", "Fiat", "VW", "Honda"];
+marcas.splice(2, 0, 'Nissan', 'Renault'); //["Ford","Fiat","Nissan","Renault","VW","Honda"]
+marcas.splice(1,3); //["Ford","VW","Honda"]
+
+// Metodos de Acesso 
+//[].concat() concatena duas arrays
+const transportes1 = ["Barco","Aviao"];
+const transportes2 = ["Carro","Moto"];
+const transportes1e2 = transportes1.concat(transportes2); //["Barco","Aviao","Carro","Moto"]
+const transportes3 = ["Caminhao"];
+const transportes1_2_3 = [].concat(transportes1,transportes2,transportes3); //["Barco","Aviao","Carro","Moto","Caminhao"]
+
+//[].includes(valor) verifica se a array possui o valor e retorna um booleanos
+const linguagens = ["html","css","js","php","Java","js"];
+linguagens.includes("js"); //true
+
+//[].indexof(valor) verifica se a array possui o valor e retorna o index do 1o item ou -1 se nao achar
+linguagens.indexOf("js"); //2
+linguagens.indexOf("C#"); //-1
+
+//[].lastindexof(valor) verifica se a array possui o valor e retorna o index do ultimo item ou -1 se nao achar
+linguagens.lastIndexOf("js"); //5
+
+//[].join() junta todos os valores e retorna uma string. Pode passar parametro da maneira que quer separar os itens
+linguagens.join('-'); //"html-css-js-php-Java-js"
+
+//[].slice(a partir de qual item, ate qual item deseja) retorna um array com o resultado
+linguagens.slice(3); //["php","Java","js"]
+linguagens.slice(2,4); //["js","php"]
+linguagens.slice(); //["html","css","js","php","Java","js"] Muito usado para clonar um array
+
+// Substitua section por ul e div com li,
+// utilizando split e join
 let html = `<section>
               <div>Sobre</div>
               <div>Produtos</div>
               <div>Contato</div>
             </section>`;
-// Substitua section por ul e div com li,
-// utilizando split e join
+
 html = html.split("section");
 html = html.join("ul");
 html = html.split("div");
 html = html.join("li");
 console.log(html);
 
-const carros = ["Ford", "Fiat", "VW", "Honda"];
+/*
+ * Aula 0406 - Array3
+ */
+
 // Remova o último carro, mas antes de remover
 // salve a array original em outra variável
+const carros = ["Ford", "Fiat", "VW", "Honda"];
 const novoCarros = carros.slice();
 console.log(novoCarros);
 carros.pop();
 console.log(carros);
 
-// Aula 0407 map
+
+/*
+ * Aula 0407 Map 
+ */
+
 const carrosLista = carros.map((item) => {
   item = "Carro " + item;
   return item;
