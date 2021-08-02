@@ -50,7 +50,7 @@ const transportes1e2 = transportes1.concat(transportes2); //["Barco","Aviao","Ca
 const transportes3 = ["Caminhao"];
 const transportes1_2_3 = [].concat(transportes1,transportes2,transportes3); //["Barco","Aviao","Carro","Moto","Caminhao"]
 
-//[].includes(valor) verifica se a array possui o valor e retorna um booleanos
+//[].includes(valor) verifica se a array possui o valor e retorna um boolean
 const linguagens = ["html","css","js","php","Java","js"];
 linguagens.includes("js"); //true
 
@@ -69,7 +69,15 @@ linguagens.slice(3); //["php","Java","js"]
 linguagens.slice(2,4); //["js","php"]
 linguagens.slice(); //["html","css","js","php","Java","js"] Muito usado para clonar um array
 
-// Substitua section por ul e div com li,
+// Exemplo - Remova o último carro, mas antes de remover
+// salve a array original em outra variável
+const carros = ["Ford", "Fiat", "VW", "Honda"];
+const novoCarros = carros.slice();
+console.log(novoCarros);
+carros.pop();
+console.log(carros);
+
+// Exemplo - Substitua section por ul e div com li,
 // utilizando split e join
 let html = `<section>
               <div>Sobre</div>
@@ -87,29 +95,65 @@ console.log(html);
  * Aula 0406 - Array3
  */
 
-// Remova o último carro, mas antes de remover
-// salve a array original em outra variável
-const carros = ["Ford", "Fiat", "VW", "Honda"];
-const novoCarros = carros.slice();
-console.log(novoCarros);
-carros.pop();
-console.log(carros);
+// Metodos de Acesso 
+//[].find() retorna o valor no primeiro que for true
+const decimais = [6,43,22,88,101,29];
+const decimalMaior80 = decimais.find(x => x > 80); //88
 
+//[].findIndex() retorna o index que está o valor
+const frutas = ['Banana','Pera','Uva','Laranja'];
+const indexUva = frutas.findIndex((fruta)=>{
+  return fruta === 'Uva';
+}) // 2
+
+//[].filter() retorna um novo array com os valores true encontrados durante o loop
+//Ex-1
+const arraySuja = ['Banana','',undefined,null,'Uva',0,'Laranja'];
+const arrayDeFrutas = arraySuja.filter((fruta)=>{
+  return fruta;
+}); //['Banana','Uva','Laranja'];
+//Ex-2
+const numerosII = [6,46,22,88,101,29,10];
+const numerosMenorQue80 = numerosII.filter((menor)=>{
+  return menor < 80;
+}); // [6,46,22,29,10]
+//Ex-3 
+const linguagensAula = [
+  {
+    nome: 'php',
+    min: 10
+  },
+  {
+    nome: 'C#',
+    min: 20
+  },
+  {
+    nome: 'Java',
+    min: 15
+  },
+  {
+    nome: 'JS',
+    min: 35
+  }
+];
+const maioresQue20 = linguagensAula.filter((duracao)=>{
+  return duracao.min > 10;
+}) // retornou um array com os objetos maiores que 10 a propriedade min
 
 /*
  * Aula 0407 Map 
  */
 
-const carrosLista = carros.map((item) => {
+//[].map retorna um novo array com o resultado da funcao. Nao altera o array original
+const carrosII = ["Ford", "Fiat", "VW", "Honda"];
+const carrosLista = carrosII.map((item) => {
   item = "Carro " + item;
   return item;
 });
-console.log(carrosLista);
 //ou
 const carrolista = carros.map((item) => "Carro " + item);
-console.log(carrolista);
+//['Carro Ford','Carro Fiat','Carro VW','Carro Honda'];
 
-//Iteracao com map
 const aulas = [
   {
     nome: "HTML 1",
@@ -130,47 +174,30 @@ const aulas = [
 ];
 const aulasNova = aulas.map((item) => {
   return item.min;
-});
-console.log("array aulasNova =>", aulasNova);
+}); //[15,10,20,25]
 
-/**
- * Reduce  !!! Com acumulador na própria iteracao
- */
-const aulasNovaTotal = aulasNova.reduce((acumulador, item) => {
+const pares = [2,4,6,8,10];
+const dobroDePares = pares.map((item)=>{
+  return item * 2;
+}); //[4,8,12,16,20];
+
+//[].reduce((total, currentValue, currentIndex, arr), initialValue) retorna um acumulador cfe parametros
+const arrayDeValores = [15,10,20,25];
+const somaArrayDeValores = arrayDeValores.reduce((acumulador, item) => {
   return acumulador + item;
-}, 0);
-console.log("aulasNovaTotal =>", aulasNovaTotal);
+}, 0); // 70
 
-// Mais exemplos de reduce
-const aulas1 = [10, 25, 30];
-const totalAulas1 = aulas1.reduce((acumulador, item) => {
-  return acumulador + item;
-}, 0);
-console.log(totalAulas1); // 65
-
-// Agora partindo de 100 o acumulador
-const total2Aulas1 = aulas1.reduce((acumulador, item) => {
+// acumulado partindo do valor de 100 
+const somaArrayDeValoresAPartirDe100 = arrayDeValores.reduce((acumulador, item) => {
   return acumulador + item;
 }, 100);
-console.log(total2Aulas1); // 165
+console.log(somaArrayDeValoresAPartirDe100); // 170
 
-// findIndex
-const indexFiat = carros.findIndex((item) => {
-  return item === "Fiat";
-});
-console.log("Index Fiat => ", indexFiat);
 
-/**
- *
- * EXERCICIOS
- *
- */
-console.log("------------------- Exercicios ---------------");
+/* ---EXERCICIOS--- */
 
 // 1 - Selecione cada curso e retorne uma array    (retornar array usa-se map)
-// com objetos contendo o título, descricao,
-// aulas e horas de cada curso
-
+// com objetos contendo o título, descricao,aulas e horas de cada curso
 const cursos = document.querySelectorAll(".curso");
 const arrayCursos = Array.from(cursos);
 const cursosMap = arrayCursos.map((item) => {
@@ -184,24 +211,36 @@ const cursosMap = arrayCursos.map((item) => {
     aulas,
     horas,
   };
-});
-console.log(cursosMap);
+}); 
+/*
+[
+  {
+    titulo: "web Design completo",
+    descricao: "Este curso....",
+    aulas: "80",
+    horas: "22"
+  }
+]
+*/
+/* Importante: No ES6 se a chave do obj tiver o mesmo nome da variavel, pode simplificar (Exemplo no return acima)
+   Poderia ser escrito:
+ {
+   titulo: titulo,
+   descricao: descricao,
+   aulas: aulas,
+   horas: horas
+ }
+*/
 
-// 2- Retorne uma lista com os
-// números maiores que 100
+// 2- Retorne uma lista com os números maiores que 100
 const numeros = [3, 44, 333, 23, 122, 322, 33];
 const numerosLista = numeros.filter((item) => {
   return item > 100;
-});
-console.log("array com filter > 100 = ", numerosLista);
+}); //[333,122,322]
 
-// 3- Verifique se Baixo faz parte
-// da lista de instrumentos e retorne true
+// 3- Verifique se "Baixo" faz parte da lista de instrumentos e retorne true
 const instrumentos = ["Guitarra", "Baixo", "Bateria", "Teclado"];
-const baixo = instrumentos.some((item) => {
-  return item === "Baixo";
-});
-console.log("usando o some: ", baixo);
+const baixo = instrumentos.includes("Baixo"); //true
 
 // 4- Retorne o valor total das compras
 const compras = [
@@ -229,34 +268,25 @@ const compras = [
 
 const precoLista = compras.map((item) => {
   return item.preco;
-});
-console.log("array item.preco = ", precoLista);
+}); //["R$ 4,99", "R$ 2,99", "R$ 25,49", "R$ 5,35", "R$ 10,60"]
 
 const precoListaLimpo = precoLista.map((item) => {
   return +item.replace("R$", "").replace(",", ".").trim();
-});
-console.log("array de String para Number = ", precoListaLimpo);
+}); //[4.99,2.99,25.49,5.35,10.60]
 
 const total = precoListaLimpo.reduce((acumulador, item) => {
   return acumulador + item;
 });
-console.log(
-  total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
-);
+console.log(total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })); // R$ 49,42
 
-// forma otimizada do exercicio acima
+// ** Forma otimizada do exercicio acima
 const totalOtimizado = compras.reduce((acumulador, item) => {
   const precoLimpo = +item.preco.replace("R$ ", "").replace(",", ".");
   return acumulador + precoLimpo;
 }, 0);
-console.log(totalOtimizado);
+console.log(totalOtimizado.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })); //R$ 49,42
 
-const carros1 = ['Ford', 'Fiat', 'VW', 'Honda'];
-carros1.splice(1, 0, 'Kia', 'Mustang'); // []
-console.log(carros1); // ['Ford', 'Kia', 'Mustang', 'Fiat', 'VW', 'Honda']
 
-carros1.splice(3, 2, 'Ferrari'); // ['Fiat', 'VW']
-console.log(carros1); // ['Ford', 'Kia', 'Mustang', 'Ferrari', 'Honda']
 
 
 
