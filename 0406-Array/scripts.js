@@ -36,7 +36,7 @@ console.log(estudantes.includes("Juliana")); //false
  * Aula 0406 - Array2
  */
 
-//Metodos de Array Modificadores [].splice()
+//Metodos de Array Modificadores 
 //[].splice(a partir de qual item, quantos itens quer remover, item1 a add, item2 a add, ...)
 const marcas = ["Ford", "Fiat", "VW", "Honda"];
 marcas.splice(2, 0, 'Nissan', 'Renault'); //["Ford","Fiat","Nissan","Renault","VW","Honda"]
@@ -193,6 +193,11 @@ const somaArrayDeValoresAPartirDe100 = arrayDeValores.reduce((acumulador, item) 
 }, 100);
 console.log(somaArrayDeValoresAPartirDe100); // 170
 
+//function.apply()
+const listaNumeros = [1,2,3,4,5];
+Math.max.apply(null, listaNumeros); //5
+//function.call()
+Math.max.call(null, 1,2,3,4,5); //5
 
 /* ---EXERCICIOS--- */
 
@@ -212,14 +217,15 @@ const cursosMap = arrayCursos.map((item) => {
     horas,
   };
 }); 
-/*
+/* retorno
 [
   {
     titulo: "web Design completo",
     descricao: "Este curso....",
     aulas: "80",
     horas: "22"
-  }
+  },
+  ...
 ]
 */
 /* Importante: No ES6 se a chave do obj tiver o mesmo nome da variavel, pode simplificar (Exemplo no return acima)
@@ -285,8 +291,6 @@ const totalOtimizado = compras.reduce((acumulador, item) => {
   return acumulador + precoLimpo;
 }, 0);
 console.log(totalOtimizado.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })); //R$ 49,42
-
-
 
 
 

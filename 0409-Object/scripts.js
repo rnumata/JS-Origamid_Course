@@ -1,3 +1,18 @@
+// definicao de objeto
+const car = {
+  marca: 'marca',
+  roda: 0,
+  ligar (){
+    console.log(`Marca: ${this.marca} com ${this.roda} rodas`);
+  }
+}
+
+const nissan = Object.create(car); //nissan é um objeto de carro
+nissan.marca = "versa";
+nissan.roda = 4;
+nissan.ligar();
+
+
 /**
  * 0bject.create
  * linha 20 retorna um novo objeto (no caso honda) e que terá como protótipo o objeto do primeiro argumento (no caso carro).
@@ -51,10 +66,8 @@ moto.acelerar(); // posso acessar o metodo acelerar que agora tb está em moto
 
 Object.assign(carrinho, funcaoAutomovel); // -> aqui ele inseriu em carinho as propriedades e metodos de funcaoAutomovel
 
-console.log("-------------------- Exercicios ---------------");
-/**
- * Exercicios
- */
+
+/*** Exercicios ***/
 
 // 1- Crie uma função que verifique
 // corretamente o tipo de dado
