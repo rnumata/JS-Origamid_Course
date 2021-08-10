@@ -33,7 +33,7 @@
     transform: translate3d(0, 0, 0);
   }
 }
-.ativo .modal {
+.modal.ativo {
   animation: mostraModal 0.4s forwards;
 }
 
