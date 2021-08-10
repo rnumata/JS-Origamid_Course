@@ -1,45 +1,38 @@
-/**
- * 
-   <div data-cor="azul" data-width="500">TESTE DATASET</div>
-   <div data-anima="left" data-tempo="1000">Div 1</div>
-   <div data-anima="right" data-tempo="2000">Div 2</div>
+/* dataset é uma propriedade do construtor HTMLElement. Facilita a comunicacao entre o DOM, o JS e o CSS
+   Ex de aplicacao no 1o h1
+   <h1 class="titulo" data-cor="azul">Animais Fantásticos</h1>
+*/
+//selecione o dataset de h1 de 3 maneiras, atribuir um novo data-font e deletar
+const h1 = document.querySelector('h1');
+h1.dataset.cor; // "azul"
+const h1_ = document.querySelector('[data-cor]');
+h1_.dataset.cor; // "azul"
+const _h1 = document.querySelector('[data-cor="azul"]');
+_h1.dataset.cor;  // "azul"
 
- * Seleciona um elemento, adiciona um atributo com o dataset e remove o atributo com delete
- * daí lá no css pode selecionar o atributo [data-font] { ... }
- * O dataset tb aceita composto tipo data-scroll-up mas tem que definir com camelCase
- */
-//const div = document.querySelector("div");
-//div.dataset.cor;   //azul
-//div.dataset.font = "arial";
-//delete div.dataset.font;
-//div.dataset.scrollUp = "up";
+h1.dataset.font = "bold";  // inserido no element
+
+//delete h1.dataset.font;  // deletou do element
 
 /**
  * data atributes
- * Seleciona uma lista de divs com o atributo [data-anima], faz um foreach adicionando uma classe com o
- * conteudo do data-anima
+ * Seleciona uma lista de divs com o atributo [data-anima], faz um foreach adicionando uma classe com o conteudo do data-anima
  */
+const divs = document.querySelectorAll("[data-anima]");
+  divs.forEach((item) => {
+    item.classList.add(item.dataset.anima);
+});
 
-//const divs = document.querySelectorAll("[data-anima]");
-//divs.forEach((item) => {
-//  item.classList.add(item.dataset.anima);
-//});
 
-/**
- * Exercicios
- */
+/*** Exercicios ***/
+// 1) Adicione um atributo data-anime="show-down" e data-anime="show-right", randomicamente, a todos as section's com descricão dos animais.
 
-// Adicione um atributo data-anime="show-down" e
-// data-anime="show-right" a todos as section's
-// com descricão dos animais.
+// Resposta -> linha 18 em animacoes.js e linha 253 a 281 em style.css 
 
-// Resposta-> inserir manualmente o data-anime nas sections
 
-// Utilizando estes atributos, adicione a classe
-// show-down ou show-right a sua respectiva section
-// assim que a mesma aparecer na tela (animacao tab)
+// 2) Utilizando estes atributos, adicione a classe show-down ou show-right a sua respectiva section assim que a mesma aparecer na tela (animacao tab)
 
-// Resposta-> no animacoes.js
+// Resposta-> linha 18 em animacoes.js
 
 // No CSS faça com que show-down anime de cima para baixo
 // e show-right continue com a mesma animação da esquerda

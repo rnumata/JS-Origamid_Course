@@ -292,6 +292,15 @@ const totalOtimizado = compras.reduce((acumulador, item) => {
 }, 0);
 console.log(totalOtimizado.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })); //R$ 49,42
 
-
+// Populando array com objeto
+const listaNumero = [];
+for (let index = 0; index < 5; index++) {
+  let soma = index;
+  listaNumero.push({
+    nome: index,
+    idade: soma++
+  });
+};
+console.log(listaNumero);
 
 

@@ -12,6 +12,7 @@ dl {
 }
 
 /*Exercicio*/
+/* ou [data-cor] ou [data-cor="azul"]*/
 [data-cor^="azul"] {
   background: blue;
 }
@@ -245,6 +246,7 @@ html.textomaior {
  * @keyframes recebe o nome de show. faz o elemento sair de (-30px, 0, 0) para (0, 0, 0)
  * o animation chama o show e aplica 0.5s de delay
 */
+
 [data-tab="content"] section.ativo {
   display: block !important;
 }
@@ -256,6 +258,7 @@ html.textomaior {
 [data-tab="content"] section.ativo.show-right {
   animation: show-right 0.9s forwards;
 }
+/*Poderia selecionar .animais-descricao section.ativo*/
 
 @keyframes show-down {
   from {
@@ -279,8 +282,8 @@ html.textomaior {
   }
 }
 
-/* Accordion list
-* 
+/* 
+* Accordion list
 */
 .js [data-anime="accordion"] dd {
   display: none;
@@ -314,6 +317,10 @@ html.textomaior {
     transform: translate3d(0, 0, 0);
   }
 }
+
+/*
+* Scroll suave
+*/
 
 .js [data-anime="scroll"] {
   opacity: 0;
