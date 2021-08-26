@@ -1,0 +1,8 @@
+#resultado {
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  color: brown;
+  font-weight: bold;
+  margin-top: 20px;
+}

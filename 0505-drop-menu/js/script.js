@@ -12,8 +12,4 @@ initTabNav();
 initModal();
 initDropdownMenu();
 
-//Teste de import
-import * as configs from "./modules/config.js";
-console.log(configs.ano);
-console.log(configs.obj.nome);
-//
+

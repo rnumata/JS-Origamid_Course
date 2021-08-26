@@ -333,9 +333,18 @@ html.textomaior {
 }
 
 /*
-* Pratica setInterval
+* Pratica setTimeout e setInterval
 */
+button.active {
+  font-size: 20px;
+  background: blueviolet;
+}
 .setInterval.ativo {
   color: #e54;
   background-color: #fb5;
+}
+
+.cronometro {
+  display: block;
+  margin: 20px 0 0 50px;
 }
