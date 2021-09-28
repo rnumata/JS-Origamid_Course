@@ -1,51 +1,56 @@
-console.log(document.forms); //traz um html collection com todos os forms do document
+// -- Selecionar forms --
 
-console.log(document.forms[0]); // seleciona um formulario especifico da lista
+//traz um html collection com todos os forms do document
+console.log(document.forms); 
 
-const formContato = document.querySelector("#contato"); //seleciona o formulario especifico pelo id
+// seleciona um formulario especifico da lista
+console.log(document.forms[0]); 
+
+//seleciona o formulario especifico pelo name. Traz os inputs apenas
+const formContatoByName = document.forms.contato; 
+console.log(formContatoByName);
+
+//seleciona o formulario especifico pelo id
+const formContato = document.querySelector("#contato"); 
 console.log(formContato);
 
-// --
+// -- Selecionar os campos dos forms
+//traz um html collection com todos os campos do form
+const elementsDoForm = formContato.elements;  
+console.log(elementsDoForm); 
 
-console.log(formContato.elements); //traz um html collection com todos os campos do form
-
-const formContatoNome = formContato.elements[0]; //seleciona o 1o componente do formulario (<input name="nome")
+//seleciona o 1o componente do formulario (<input name="nome" />)
+const formContatoNome = formContato.elements[0]; 
 console.log(formContatoNome);
 
-const formContatoNomeII = formContato.elements.nome; // tb é possivel selecionar pelo nome (name) do objeto
+// tb é possivel selecionar pelo name (Pex: nome) do objeto
+const formContatoNomeII = formContato.elements.nome; 
 console.log("nome", formContatoNomeII);
 
-// --
+/* Exercicio */
+//Selecionar o form, adicionar um evento nele e atraves da funcao pegar os valores quando change (troca o campo)
+const formulario = document.querySelector('#contato');
 
-//Selecionei o form, adicionei um evento nele e atraves da funcao pego os valores quando keyup ou change campo
-const form = document.getElementById("contato");
-
-form.addEventListener("keyup", handleForm);
-function handleForm(event) {
-  console.log(event.target.value); //a cada letra digitada é capturada
-}
-
-form.addEventListener("change", hanldeFormChange);
-function hanldeFormChange(event) {
-  //console.log(event.target.value); //qdo troca de campo o valor é capturado
-}
+//qdo troca de campo o valor é capturado
+// formulario.addEventListener("change", hanldeFormChange);
+// function hanldeFormChange(event) {
+//   console.log("value: " + event.target.value); 
+// }
 
 // funcao checkValidity() valida se o input está conforme o tipo do campo
-const formulario = document.querySelector("#contato");
-
-function handleFormEmail(event) {
+function handleForm(event) {
   const target = event.target;
+  console.log(target.value);
   if (!target.checkValidity()) {
     target.classList.add("invalido");
-    target.nextElementSibling.innerText = target.validationMessage; // uma forma de mostrar erro. Vale para todos
-    formulario.elements.email.setCustomValidity("email importante"); // falando com um campo específico (formulario.email)
+    target.nextElementSibling.innerText = target.validationMessage; // nextElementsibling é o elemento logo apos o target(no caso span)
   } else {
     target.classList.remove("invalido");
     target.nextElementSibling.innerText = "";
   }
 }
 
-formulario.addEventListener("change", handleFormEmail);
+formulario.addEventListener("change", handleForm);
 
 /**
  *
