@@ -4,22 +4,29 @@
 
 /*const form = document.getElementById("contato");  ou*/
 const form = document.querySelector("#contato");
+const spanCep = document.querySelector('.error');
+
 form.addEventListener("change", handleForm);
 function handleForm(event) {
   buscaCep(event.target.value);
 }
 function buscaCep(cep) {
-  const caixaPostal = fetch(`https://viacep.com.br/ws/` + cep + `/json/`);
+  const caixaPostal = fetch(`https://viacep.com.br/ws/${cep}/json/`);
   caixaPostal
-    .then((r) => {
+    .then((r, Error) => {
       return r.json();
     })
     .then((body) => {
       /* document.getElementById("endereco").value = body.logradouro;  ou */
-      form.elements.endereco.value = body.logradouro;
-      form.elements.bairro.value = body.bairro;
-      form.elements.localidade.value = body.localidade;
-      form.elements.uf.value = body.uf;
+      if(!body.erro){
+        form.elements.endereco.value = body.logradouro;
+        form.elements.bairro.value = body.bairro;
+        form.elements.localidade.value = body.localidade;
+        form.elements.uf.value = body.uf;
+        spanCep.textContent = "";
+      }else{ 
+        spanCep.textContent = "CEP Inválido !";
+      }
     });
 }
 

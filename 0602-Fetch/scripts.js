@@ -1,6 +1,6 @@
 /**
  * 1- consumindo uma api doc.txt e inserindo num h1
- * Convertendo usando o text
+ * Convertendo a promise em text
  */
 const doc = fetch("./doc.txt");
 doc
