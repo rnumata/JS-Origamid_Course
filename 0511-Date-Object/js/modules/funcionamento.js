@@ -29,7 +29,7 @@ export default function initFuncionamento() {
 
 // Exercicios
 const agora = new Date(); //Ex: Thu Aug 26 2021 19:31:02 GMT-0300 (Horário Padrão de Brasília)
-const natal = new Date('Dec 25 2021 22:00:00 GMT-0300'); //Sat Dec 25 2021 22:00:00 GMT-0300 (Horário Padrão de Brasília)
+const natal = new Date('Dec 25 2022 22:00:00 GMT-0300'); //Sat Dec 25 2021 22:00:00 GMT-0300 (Horário Padrão de Brasília)
 
 //Calculo de Dias até o Natal
 function converterMilisegundoEmdias(tempo){
